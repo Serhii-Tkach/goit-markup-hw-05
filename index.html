@@ -39,9 +39,18 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-description">Effective Solutions <br> for Your Business</h1>
-                <button type="button" class="button button-order">Order Service</button>
+                <button data-modal-open type="button" class="button button-order">Order Service</button>
             </div>
         </section>
+
+    <!-- Backdrop -->
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button data-modal-close type="button" class="close-modal">
+                <img src="./images/Vector.svg" alt="x">
+            </button>
+        </div>
+    </div>
     
     <!-- Цінності компанії -->
             <section class="section">
@@ -356,6 +365,7 @@
             </div>
        </div>
     </footer>
-   
+
+    <script src="./js/modal.js"></script>
 </body>
 </html>
