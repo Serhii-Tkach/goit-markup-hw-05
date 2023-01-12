@@ -136,6 +136,8 @@ body {
 }
 
 .nav-title {
+    position: relative;
+
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -150,6 +152,26 @@ body {
 .nav-title:hover,
 .nav-title:focus {
     color: var(--color-hover-focus);
+}
+
+.studio, 
+.portfolio, 
+.contacts {
+    color: var(--color-hover-focus);
+}
+
+.studio::after,
+.portfolio::after,
+.contacts::after {   
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+
+    background: var(--color-hover-focus);
+    border-radius: 2px;
 }
 
 /* Контакти */
@@ -311,7 +333,7 @@ body {
 .close-modal {
     position: absolute;
     top: 24px;
-    left: 360px;
+    right: 24px;
     padding: 8px;
 
     border-radius: 50%;
@@ -652,6 +674,7 @@ img {
     margin-bottom: 48px;
 
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cards-list > .item:nth-child(3n) {
@@ -671,15 +694,46 @@ img {
     text-decoration: none;
 }
 
+.card-thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-text {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    font-weight: 400;
+    background-color: var(--primary-brand-color);
+    color: var(--background-light-color);
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-link:hover .card-text,
+.card-link:focus .card-text {
+    transform: translateY(0);
+}
+
 .card-content {
     padding: 32px 0 32px 16px;
 
     border: 1px solid #E7E9FC;
     border-top: none;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-content:hover,
-.card-content:focus {
+.card-link:hover .card-content,
+.card-link:focus .card-content{
     border: 0.5px solid #F4F4FD;
     border-top: none;
 }
